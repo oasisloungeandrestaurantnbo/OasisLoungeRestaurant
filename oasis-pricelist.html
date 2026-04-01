@@ -2,428 +2,275 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Oasis Restaurant | Pricelist & Menu</title>
-  <!-- Google Fonts + Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasis Restaurant Nairobi - Menu Price List</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: #fef8f0;
       color: #2c1a0e;
-      scroll-behavior: smooth;
+      line-height: 1.6;
     }
-
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1e2d4;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #c46f2b;
-      border-radius: 12px;
-    }
-
     .container {
-      max-width: 1400px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 18px;
+      padding: 20px;
     }
-
     header {
-      background: rgba(255, 245, 235, 0.98);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 2px solid #ffd6b3;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
-    }
-    .nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 0;
-      gap: 12px;
-    }
-    .logo h1 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #c95f1a, #9b4210);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -0.2px;
-    }
-    .logo p {
-      font-size: 0.65rem;
-      color: #b45a2a;
-      font-weight: 600;
-    }
-
-    .hero {
-      background: linear-gradient(115deg, #fbeadc 0%, #ffedd9 100%);
-      border-radius: 28px;
-      margin: 20px 0 28px;
-      padding: 28px 20px;
       text-align: center;
+      padding: 40px 0 30px;
+      border-bottom: 4px solid #bc601f;
+      margin-bottom: 40px;
     }
-    .hero h2 {
-      font-size: 1.8rem;
+    .logo {
+      font-size: 2.4rem;
       font-weight: 800;
-      color: #7e3e12;
-    }
-    .address-badge {
-      background: rgba(233, 162, 104, 0.15);
-      padding: 12px 14px;
-      border-radius: 40px;
-      margin: 16px auto 0;
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #a24e1a;
-    }
-    .address-badge i {
-      margin-right: 8px;
       color: #bc601f;
+      margin-bottom: 10px;
     }
-    .hero span {
-      background: #e9a268;
-      padding: 6px 16px;
-      border-radius: 60px;
-      color: white;
-      font-size: 0.8rem;
-      display: inline-block;
-      margin-top: 14px;
+    .tagline {
+      font-size: 1.2rem;
+      color: #7e3e12;
+      font-weight: 600;
     }
-
-    .categories {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 10px;
-      margin: 24px 0 16px;
-      padding-bottom: 8px;
-      scrollbar-width: thin;
+    h2 {
+      color: #bc601f;
+      margin: 50px 0 25px;
+      font-size: 1.9rem;
+      border-left: 6px solid #bc601f;
+      padding-left: 18px;
     }
-    .cat-btn {
-      background: #f3ede8;
-      border: none;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 8px 18px;
-      border-radius: 40px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: 0.2s;
-      color: #6e4a2c;
-    }
-    .cat-btn.active {
-      background: #bc601f;
-      color: white;
-      box-shadow: 0 4px 10px rgba(188,96,31,0.25);
-    }
-
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 18px;
-      margin: 20px 0 60px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 25px;
     }
-    @media (min-width: 520px) {
-      .menu-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-    }
-    @media (min-width: 900px) {
-      .menu-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    .menu-card {
+    .menu-item {
       background: white;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
-      transition: 0.2s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      border: 1px solid #ffebdd;
-      display: flex;
-      flex-direction: column;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
     }
-    .menu-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    .menu-item:hover {
+      transform: translateY(-8px);
     }
     .menu-img {
       width: 100%;
-      height: 160px;
+      height: 210px;
       object-fit: cover;
-      background: #f5e6da;
-      transition: opacity 0.4s ease;
     }
-    .menu-img.loaded {
-      opacity: 1;
-    }
-    .card-content {
-      padding: 14px 12px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .item-content {
+      padding: 20px;
     }
     .item-name {
-      font-size: 1rem;
-      font-weight: 800;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 6px;
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #2c1a0e;
     }
     .item-price {
-      color: #bc601f;
+      font-size: 1.45rem;
       font-weight: 800;
-      font-size: 0.95rem;
+      color: #bc601f;
+      margin-bottom: 10px;
     }
     .item-desc {
-      font-size: 0.7rem;
-      color: #7c5d44;
-      line-height: 1.3;
+      font-size: 0.92rem;
+      color: #6b5a4a;
+      line-height: 1.5;
     }
-
-    .contact-strip {
+    .contact {
       background: #2d2117;
       color: #ffe2ce;
-      padding: 16px;
+      padding: 30px;
+      border-radius: 20px;
       text-align: center;
-      font-size: 0.85rem;
-      border-radius: 28px 28px 0 0;
-      margin-top: 30px;
+      margin: 50px 0;
     }
-    .footer-note {
-      background: #1f1710;
-      color: #c9ad93;
+    .footer {
       text-align: center;
-      padding: 14px;
-      font-size: 0.7rem;
+      padding: 40px 20px 30px;
+      color: #8c6f5a;
+      font-size: 0.95rem;
+      border-top: 1px solid #e8d5c0;
     }
-    .whatsapp-float {
-      position: fixed;
-      bottom: 22px;
-      right: 18px;
-      background: #25D366;
-      color: white;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.9rem;
-      box-shadow: 0 6px 18px rgba(37,211,102,0.4);
-      z-index: 150;
-      cursor: pointer;
-      text-decoration: none;
-      border: 2px solid white;
-    }
-    .whatsapp-float:active {
-      transform: scale(0.94);
-    }
-    .section-header {
-      font-size: 1.7rem;
-      font-weight: 800;
-      margin: 20px 0 8px;
-      color: #7e3e12;
-      border-left: 5px solid #bc601f;
-      padding-left: 16px;
-    }
-    .category-group {
-      margin-bottom: 32px;
+    @media (max-width: 768px) {
+      .menu-grid { gap: 18px; }
+      h2 { font-size: 1.7rem; margin-top: 40px; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <div class="nav-bar">
-      <div class="logo">
-        <h1>🍛 Oasis Restaurant Nairobi</h1>
-        <p>🇳🇬 Authentic Nigerian Cuisine</p>
-      </div>
-    </div>
+<div class="container">
+
+  <header>
+    <div class="logo">OASIS RESTAURANT</div>
+    <div class="tagline">Authentic Nigerian & Kenyan Cuisine • Nairobi, Kenya</div>
+    <p style="margin-top:15px; color:#a24e1a; font-size:1.05rem;">
+      <i class="fas fa-map-marker-alt"></i> Opposite Racecourse Gardens, off Ngong Road<br>
+      <i class="fab fa-whatsapp"></i> Orders & Delivery: <strong>0740 582 858</strong> • Open 24 Hours
+    </p>
+  </header>
+
+  <h2 id="breakfast">🍳 Breakfast</h2>
+  <div class="menu-grid" id="breakfast-grid"></div>
+
+  <h2 id="proteins">🍖 Proteins</h2>
+  <div class="menu-grid" id="proteins-grid"></div>
+
+  <h2 id="soups">🍲 Soups</h2>
+  <div class="menu-grid" id="soups-grid"></div>
+
+  <h2 id="rice">🍚 Rice & Pasta</h2>
+  <div class="menu-grid" id="rice-grid"></div>
+
+  <h2 id="stew">🥘 Stews</h2>
+  <div class="menu-grid" id="stew-grid"></div>
+
+  <h2 id="swallows">🍠 Swallows</h2>
+  <div class="menu-grid" id="swallows-grid"></div>
+
+  <h2 id="sauce">🍛 Sauces</h2>
+  <div class="menu-grid" id="sauce-grid"></div>
+
+  <h2 id="kenyan">Kenyan Menu</h2>
+  <div class="menu-grid" id="kenyan-grid"></div>
+
+  <div class="contact">
+    <p><strong>📍 Location:</strong> Opposite Racecourse Gardens, off Ngong Road, Nairobi</p>
+    <p><strong>📞 WhatsApp Orders:</strong> 0740 582 858</p>
+    <p><strong>🕒 Opening Hours:</strong> Open 24 Hours Daily</p>
   </div>
-</header>
 
-<main class="container">
-  <div class="hero">
-    <h2>🔥 Taste of Lagos, Right in Nairobi 🔥</h2>
-    <div class="address-badge">
-      <i class="fas fa-map-marker-alt"></i> Opposite Racecourse Gardens, off Ngong Road, Nairobi
-    </div>
-    <div class="address-badge" style="background:#e9a26810; margin-top: 6px;">
-      <i class="fas fa-phone-alt"></i> Order / Delivery: 0740 582 858
-    </div>
-    <span>✨ Free delivery on selected dishes ✨</span>
+  <div class="footer">
+    © 2026 Oasis Restaurant Nairobi • Authentic Nigerian & Kenyan Cuisine
   </div>
 
-  <!-- Category Filter Tabs -->
-  <div class="categories" id="categoryTabs">
-    <button class="cat-btn active" data-cat="all">All Menu</button>
-    <button class="cat-btn" data-cat="breakfast">Breakfast</button>
-    <button class="cat-btn" data-cat="proteins">Proteins</button>
-    <button class="cat-btn" data-cat="soups">Soups</button>
-    <button class="cat-btn" data-cat="rice">Rice & Pasta</button>
-    <button class="cat-btn" data-cat="stew">Stews</button>
-    <button class="cat-btn" data-cat="swallows">Swallows</button>
-    <button class="cat-btn" data-cat="sauce">Sauces</button>
-  </div>
-
-  <div id="menuContainer"></div>
-</main>
-
-<div class="contact-strip">
-  <p><i class="fas fa-location-dot"></i> Opposite Racecourse Gardens, off Ngong Road, Nairobi — We deliver hot & fresh</p>
-  <p><i class="fab fa-whatsapp"></i> WhatsApp Orders: 0740 582 858 &nbsp;|&nbsp; <i class="fas fa-clock"></i> 24hrs Daily</p>
 </div>
-<div class="footer-note">
-  © 2025 Oasis Restaurant Nairobi • Naija Kitchen • Real Nigerian cuisine in Kenya
-</div>
-
-<a href="#" id="whatsappOrderLink" class="whatsapp-float" target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
 
 <script>
-  // ========== COMPLETE MENU DATA WITH PLACEHOLDER IMAGES (EDIT URLS BELOW) ==========
-  // Replace "YOUR_IMAGE_URL_HERE" with actual image links for each item.
-  // Placeholder uses a clean grey background with item name fallback.
-  const menuData = [
-    { id: 1, name: "Akara (Beans Ball)", price: 400, category: "breakfast", desc: "Crispy fried bean cakes", img: "https://www.onegreenplanet.org/wp-content/uploads/2016/02/akara-nigerian-fried-bean-balls.jpg" },
-    { id: 2, name: "Akara & Akamu (Pap)", price: 1000, category: "breakfast", desc: "Bean balls with millet pap", img: "data:image/jpeg;base64,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" },
-    { id: 2, name: "Akara & Akamu (Pap)", price: 1000, category: "breakfast", desc: "Bean balls with millet pap", img: "" },
-    { id: 3, name: "Moin Moin & Akamu Custard", price: 1000, category: "breakfast", desc: "Steamed bean pudding + custard", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 4, name: "Fried Plantain & Egg Sauce", price: 800, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 5, name: "Fried Chicken", price: 800, category: "proteins", desc: "Crispy whole leg piece", img: "data:image/jpeg;base64,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" },
-    { id: 6, name: "Fried Turkey", price: 1000, category: "proteins", desc: "Juicy turkey fry", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 7, name: "Fried Beef", price: 200, category: "proteins", desc: "Spiced fried beef strips", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 8, name: "Fried Goat Meat", price: 300, category: "proteins", desc: "Tender fried goat", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 9, name: "Fried Fish", price: 300, category: "proteins", desc: "Whole tilapia fry", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 10, name: "Goat Meat Asun", price: 1000, category: "proteins", desc: "Spicy roasted goat meat", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 11, name: "Beef Asun", price: 800, category: "proteins", desc: "Peppered beef delicacy", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 12, name: "Pepper Kpomo (Cow Skin)", price: 300, category: "proteins", desc: "Spicy cow skin", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 13, name: "Egusi Soup with Beef", price: 1200, category: "soups", desc: "Melon seed soup + beef", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 14, name: "Egusi Soup with Goat Meat", price: 1500, category: "soups", desc: "Rich egusi & goat meat", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 15, name: "Egusi Soup with Assorted", price: 1200, category: "soups", desc: "Assorted meat egusi", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 16, name: "Ogbono Soup with Beef", price: 1200, category: "soups", desc: "Draw ogbono + beef", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 17, name: "Ogbono Soup with Goat Meat", price: 1500, category: "soups", desc: "Ogbono & goat", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 18, name: "Ogbono Soup with Assorted", price: 1200, category: "soups", desc: "Assorted meat ogbono", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 19, name: "Nsala Soup with Goat Meat", price: 1500, category: "soups", desc: "White soup classic", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 20, name: "Nsala Soup with Chicken", price: 1500, category: "soups", desc: "Nsala & chicken", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 21, name: "Okro Soup", price: 1500, category: "soups", desc: "Fresh okro with assorted", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 22, name: "Efo Riro (Vegetable)", price: 1500, category: "soups", desc: "Spinach & peppers", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 23, name: "Oha Soup", price: 1500, category: "soups", desc: "Traditional oha leaves", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 24, name: "Afang Soup", price: 1500, category: "soups", desc: "Wild spinach delicacy", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 25, name: "Bitter Leaf Soup", price: 1500, category: "soups", desc: "Onugbu special", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 26, name: "Isi Ewu", price: 1000, category: "soups", desc: "Spiced goat head", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 27, name: "Pepper Soup", price: 1000, category: "soups", desc: "Hot pepper broth", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 28, name: "Goat Meat Pepper Soup", price: 700, category: "soups", desc: "Hearty goat pepper soup", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 29, name: "Banga Soup", price: 1500, category: "soups", desc: "Palm nut soup", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 30, name: "White Rice", price: 400, category: "rice", desc: "Steamed basmati", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 31, name: "Jollof Rice", price: 600, category: "rice", desc: "Party jollof, smoky", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 32, name: "Coconut Rice", price: 600, category: "rice", desc: "Creamy coconut aroma", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 33, name: "Native Rice (Ofada)", price: 600, category: "rice", desc: "Ofada rice + ayamase", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 34, name: "Fried Rice", price: 600, category: "rice", desc: "Mixed veg fried rice", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 35, name: "Jollof Spaghetti", price: 600, category: "rice", desc: "Jollof style pasta", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 36, name: "White Rice & Beans", price: 500, category: "rice", desc: "Rice & beans combo", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 37, name: "Beef Stew", price: 800, category: "stew", desc: "Rich tomato stew", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 38, name: "Chicken Stew", price: 1000, category: "stew", desc: "Chicken in stew", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 39, name: "Goat Meat Stew", price: 800, category: "stew", desc: "Tender goat stew", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 40, name: "Fish Stew", price: 800, category: "stew", desc: "Fish fillet stew", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 41, name: "Assorted Stew", price: 800, category: "stew", desc: "Mixed meat stew", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 42, name: "Fufu", price: 500, category: "swallows", desc: "Smooth cassava fufu", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 43, name: "Pounded Yam", price: 700, category: "swallows", desc: "Yam poundo, premium", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 44, name: "Eba", price: 400, category: "swallows", desc: "Garri eba", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 45, name: "Semo", price: 400, category: "swallows", desc: "Soft semolina", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 46, name: "Goat Meat Sauce", price: 1000, category: "sauce", desc: "Spicy sauce with goat", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 47, name: "Goat Leg Sauce", price: 700, category: "sauce", desc: "Goat leg stew", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 48, name: "Cow Leg Sauce", price: 700, category: "sauce", desc: "Cow leg special", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 49, name: "Kpomo Sauce", price: 300, category: "sauce", desc: "Cow skin sauce", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 50, name: "Pepper Chicken", price: 1000, category: "sauce", desc: "Peppered whole chicken", img: "YOUR_IMAGE_URL_HERE" },
-    { id: 51, name: "Beef Sauce", price: 700, category: "sauce", desc: "Beef in rich sauce", img: "YOUR_IMAGE_URL_HERE" }
-  ];
+// Complete Menu Data (Nigerian + Kenyan)
+const menuData = [
+  { id: 1, name: "Akara (Beans Ball)", price: 400, category: "breakfast", desc: "Crispy fried bean cakes", img: "https://kikifoodies.com/wp-content/uploads/2024/11/E685E539-B688-4131-BFFE-2288C9899A61-500x375.jpeg" },
+  { id: 2, name: "Akara & Akamu (Pap)", price: 1000, category: "breakfast", desc: "Bean balls with millet pap", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfcLJ626LlNHVFLxF0XykFkHXnACgzRvlFfA&s" },
+  { id: 4, name: "Fried Plantain & Egg Sauce", price: 800, category: "breakfast", desc: "Dodo with spicy egg sauce", img: "https://img-global.cpcdn.com/recipes/ea1c23f5fdce607f/1200x630cq80/photo.jpg" },
 
-  let activeCategory = "all";
+  { id: 5, name: "Fried Chicken", price: 800, category: "proteins", desc: "Crispy whole leg piece", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOhLisYPzO2EzgY96MDuuY8C_gsrWud2bbVw&s" },
+  { id: 6, name: "Fried Turkey", price: 1000, category: "proteins", desc: "Juicy turkey fry", img: "https://www.themarketfoodshop.com/wp-content/uploads/2017/03/turkey-parts-4.jpg" },
+  { id: 7, name: "Fried Beef", price: 200, category: "proteins", desc: "Spiced fried beef strips", img: "https://upload.wikimedia.org/wikipedia/commons/7/79/Fried_goat_meat.jpg" },
+  { id: 8, name: "Fried Goat Meat", price: 300, category: "proteins", desc: "Tender fried goat", img: "https://img-global.cpcdn.com/recipes/91ee0fbfc90cbdda/680x781cq80/roasted-goat-meat-recipe-main-photo.jpg" },
+  { id: 9, name: "Fried Fish", price: 300, category: "proteins", desc: "Whole tilapia fry", img: "https://www.mydiasporakitchen.com/wp-content/uploads/2018/03/fish-768x1024.jpg" },
+  { id: 10, name: "Goat Meat Asun", price: 1000, category: "proteins", desc: "Spicy roasted goat meat", img: "https://assets.ekotoken.ng/wp-content/uploads/sites/5/2022/11/04094423/asun-600x600-1.jpg" },
+  { id: 11, name: "Beef Asun", price: 800, category: "proteins", desc: "Peppered beef delicacy", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh2lYFcRTuzOcAzrBKeLYqQru6NkprltX6XA&s" },
+  { id: 12, name: "Pepper Kpomo (Cow Skin)", price: 300, category: "proteins", desc: "Spicy cow skin", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK_htdxjLfVt3mgsaS_vbjxfAnxWNu_ItiNQ&s" },
 
-  function renderMenu() {
-    const container = document.getElementById("menuContainer");
-    const filtered = activeCategory === "all" 
-      ? menuData 
-      : menuData.filter(item => item.category === activeCategory);
+  { id: 13, name: "Egusi Soup with Beef", price: 1200, category: "soups", desc: "Melon seed soup + beef", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNIRCMv-hYR4UqQhWO_c7cKEfz_YkyFLZpqw&s" },
+  { id: 14, name: "Egusi Soup with Goat Meat", price: 1500, category: "soups", desc: "Rich egusi & goat meat", img: "https://kikifoodies.com/wp-content/uploads/2024/12/IMG_4537-1024x1024.jpeg" },
+  { id: 15, name: "Egusi Soup with Assorted", price: 1200, category: "soups", desc: "Assorted meat egusi", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6Jp7SiibJqfRTkQOw_yuIS_JSIdDvjGm8PQ&s" },
+  { id: 16, name: "Ogbono Soup with Beef", price: 1200, category: "soups", desc: "Draw ogbono + beef", img: "https://lowcarbafrica.com/wp-content/uploads/2020/01/Ogbono-soup-Draw-Soup-IG-1-500x375.jpg" },
+  { id: 17, name: "Ogbono Soup with Goat Meat", price: 1500, category: "soups", desc: "Ogbono & goat", img: "https://nigerianmeal.com/wp-content/uploads/2018/11/1-how-to-make-Ogbono-Soup.jpg" },
+  { id: 18, name: "Ogbono Soup with Assorted", price: 1200, category: "soups", desc: "Assorted meat ogbono", img: "https://i.ytimg.com/vi/PH-G3ukBbAc/maxresdefault.jpg" },
+  { id: 19, name: "Nsala Soup with Goat Meat", price: 1500, category: "soups", desc: "White soup classic", img: "https://food.goglowonline.com/upload/1763034493White-Soup-Nsala-Image-Sodic-Garden-1.jpg" },
+  { id: 20, name: "Nsala Soup with Chicken", price: 1500, category: "soups", desc: "Nsala & chicken", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbo7g7RAIEmMRLcabe6itREYcEPLiTFgrjew&s" },
+  { id: 21, name: "Okro Soup", price: 1500, category: "soups", desc: "Fresh okro with assorted", img: "https://img-global.cpcdn.com/recipes/9f42c9ce2d01ba12/680x781cq80/excutive-spicy-okra-soup-recipe-main-photo.jpg" },
+  { id: 22, name: "Efo Riro (Vegetable)", price: 1500, category: "soups", desc: "Spinach & peppers", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdddqo1YIX3mfXKbZLntAH-UH5n-_fghDRJA&s" },
+  { id: 23, name: "Oha Soup", price: 1500, category: "soups", desc: "Traditional oha leaves", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNsk4oPsjbwY-VLGew8wsaDWW1cb8lizUWLw&s" },
+  { id: 24, name: "Afang Soup", price: 1500, category: "soups", desc: "Wild spinach delicacy", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSdfXguk1S9vxtIweAePVBvwLRILXnwO7jgw&s" },
+  { id: 25, name: "Bitter Leaf Soup", price: 1500, category: "soups", desc: "Onugbu special", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMStwCOce1Joqe7TZvrPXC2JtmOzfxACG2tA&s" },
+  { id: 26, name: "Isi Ewu", price: 1000, category: "soups", desc: "Spiced goat head", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ83CNpS8ptfmWfpiQZ8BxO00zWDdTNjWwe4Q&s" },
+  { id: 27, name: "Pepper Soup", price: 1000, category: "soups", desc: "Hot pepper broth", img: "https://cheflolaskitchen.com/wp-content/uploads/2018/05/nigerian-goat-meat-pepper-soup-3-500x450.jpg" },
+  { id: 28, name: "Goat Meat Pepper Soup", price: 700, category: "soups", desc: "Hearty goat pepper soup", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW4hXS7fPMEJ0OkvgREfobF0XqgsQ8xeZARA&s" },
+  { id: 29, name: "Banga Soup", price: 1500, category: "soups", desc: "Palm nut soup", img: "https://www.fmnfoods.com/wp-content/uploads/2020/07/banga_soup_-600.jpg" },
 
-    if (filtered.length === 0) {
-      container.innerHTML = `<div style="text-align:center; padding:40px;">🍽️ No items in this section</div>`;
-      return;
-    }
+  { id: 30, name: "White Rice", price: 400, category: "rice", desc: "Steamed basmati", img: "https://cheflolaskitchen.com/wp-content/uploads/2025/07/How-to-Cook-Rice.jpg" },
+  { id: 31, name: "Jollof Rice", price: 600, category: "rice", desc: "Party jollof, smoky", img: "https://worldlytreat.com/wp-content/uploads/2023/09/smoky-Nigerian-jollof-rice-5-2.jpg" },
+  { id: 32, name: "Coconut Rice", price: 600, category: "rice", desc: "Creamy coconut aroma", img: "https://eatwellabi.com/wp-content/uploads/2022/01/Coconut-rice-8-720x480.jpg" },
+  { id: 33, name: "Native Rice (Ofada)", price: 600, category: "rice", desc: "Ofada rice + ayamase", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRknkn602vtRHeBOWMcceBSQsb8-8g2olCNyw&s" },
+  { id: 34, name: "Fried Rice", price: 600, category: "rice", desc: "Mixed veg fried rice", img: "https://cheflolaskitchen.com/wp-content/uploads/2015/06/Fried-Rice-20.jpg.webp" },
+  { id: 35, name: "Jollof Spaghetti", price: 600, category: "rice", desc: "Jollof style pasta", img: "https://kikifoodies.com/wp-content/uploads/2024/12/ET5B8578-4.jpeg" },
+  { id: 36, name: "White Rice & Beans", price: 500, category: "rice", desc: "Rice & beans combo", img: "https://thumbs.dreamstime.com/b/rice-beans-pot-nigerian-food-cooked-brown-264701586.jpg" },
 
-    // Group by category for cleaner layout
-    const grouped = {};
-    filtered.forEach(item => {
-      if (!grouped[item.category]) grouped[item.category] = [];
-      grouped[item.category].push(item);
-    });
+  { id: 37, name: "Beef Stew", price: 800, category: "stew", desc: "Rich tomato stew", img: "https://miro.medium.com/v2/resize:fit:1200/0*7L7KWsrPcRB7_DCJ" },
+  { id: 38, name: "Chicken Stew", price: 1000, category: "stew", desc: "Chicken in stew", img: "https://lowcarbafrica.com/wp-content/uploads/2020/12/Nigerian-Chicken-Stew-IG-4.jpg" },
+  { id: 39, name: "Goat Meat Stew", price: 800, category: "stew", desc: "Tender goat stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrj5YEnjdrO7wqRhV03jQwrqazRvo0uOy-1A&s" },
+  { id: 40, name: "Fish Stew", price: 800, category: "stew", desc: "Fish fillet stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKI6s0MMP5TyqYy6y7PzBJqE2zSDBM1Cr6Ew&s" },
+  { id: 41, name: "Assorted Stew", price: 800, category: "stew", desc: "Mixed meat stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR7R7Cjfm8Sr2eUfxomS6wxlr5Nl_6PMxlxQ&s" },
 
-    let html = '';
-    for (const [cat, items] of Object.entries(grouped)) {
-      const categoryName = cat.charAt(0).toUpperCase() + cat.slice(1);
-      html += `<div class="category-group"><div class="section-header">${categoryName}</div><div class="menu-grid">`;
-      items.forEach(item => {
-        // Placeholder image handling: if URL is placeholder, use fallback style
-        const imgSrc = (item.img === "YOUR_IMAGE_URL_HERE" || !item.img) 
-          ? `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f5e6da'/%3E%3Ctext x='50%25' y='50%25' font-size='16' font-family='Inter, sans-serif' fill='%23b45a2a' text-anchor='middle' dy='.3em'%3E${item.name}%3C/text%3E%3C/svg%3E`
-          : item.img;
-        html += `
-          <div class="menu-card">
-            <img class="menu-img" src="${imgSrc}" alt="${item.name}" 
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f5e6da\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'16\' font-family=\'Inter, sans-serif\' fill=\'%23b45a2a\' text-anchor=\'middle\' dy=\'.3em\'%3E${encodeURIComponent(item.name)}%3C/text%3E%3C/svg%3E'"
-                 onload="this.classList.add('loaded')">
-            <div class="card-content">
-              <div class="item-name">
-                <span>${item.name}</span>
-                <span class="item-price">${item.price} Ksh</span>
-              </div>
-              <div class="item-desc">${item.desc}</div>
-            </div>
-          </div>
-        `;
-      });
-      html += `</div></div>`;
-    }
-    container.innerHTML = html;
-  }
+  { id: 42, name: "Fufu", price: 600, category: "swallows", desc: "Smooth cassava fufu", img: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Wrapped_fufu.jpg" },
+  { id: 43, name: "Pounded Yam", price: 800, category: "swallows", desc: "Yam poundo, premium", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGpNgjJLktYgViycdbYIEDZUW23AK518rdBQ&s" },
+  { id: 44, name: "Eba", price: 400, category: "swallows", desc: "Garri eba", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA6mA6MVfDoyRx6_OMb6PATYx-QKqVmfAQWA&s" },
+  { id: 45, name: "Semo", price: 400, category: "swallows", desc: "Soft semolina", img: "https://i0.wp.com/dubawa.org/wp-content/uploads/2024/07/semovita.png?w=712&ssl=1" },
 
-  // Category tabs
-  document.querySelectorAll(".cat-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".cat-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      activeCategory = btn.dataset.cat;
-      renderMenu();
-    });
+  { id: 46, name: "Goat Meat Sauce", price: 1000, category: "sauce", desc: "Spicy sauce with goat", img: "https://naijahome.food/wp-content/uploads/2025/09/Nigerian-Goat-Meat-Stew-Nigeria-Food-Buka-Stew-Nigeria-Soup-Calabar-Chef-Native-Soup-naija-home-food-Lagos-personal-chef-Ama-Cuisine-Ecstasy-Foods.jpg" },
+  { id: 47, name: "Goat Leg Sauce", price: 700, category: "sauce", desc: "Goat leg stew", img: "https://www.thepretendchef.com/wp-content/uploads/2016/05/homework-1-14.jpg.webp" },
+  { id: 48, name: "Cow Leg Sauce", price: 700, category: "sauce", desc: "Cow leg special", img: "https://img-global.cpcdn.com/recipes/35e6e8a9b49f61b1/640x640sq80/photo.webp" },
+  { id: 49, name: "Ponmo Sauce", price: 300, category: "sauce", desc: "Cow skin sauce", img: "https://naijahome.food/wp-content/uploads/2025/09/Nigerian-Peppered-Kpomo-Sauce-Nigeria-Food-Buka-Stew-Nigeria-Soup-Calabar-Chef-Native-Soup-naija-home-food-Lagos-personal-chef-Ama-Cuisine-Ecstasy-Foods.jpg" },
+  { id: 50, name: "Pepper Chicken", price: 1000, category: "sauce", desc: "Peppered whole chicken", img: "https://thecravebowl.com/wp-content/uploads/2025/01/dexters_peppered-chicken.jpg" },
+  { id: 51, name: "Beef Sauce", price: 700, category: "sauce", desc: "Beef in rich sauce", img: "https://miro.medium.com/v2/resize:fit:640/format:webp/0*7L7KWsrPcRB7_DCJ" },
+
+  // Kenyan Menu
+  { id: 100, name: "Pilau with Kachumbari", price: 400, category: "kenyan", desc: "Fragrant pilau served with fresh kachumbari", img: "https://cdn.standardmedia.co.ke/images/wysiwyg/images/gAaAzeWnJSGhGJexzMC3BJg9CKjWG4JO5WcuozIf.jpg" },
+  { id: 101, name: "Rice & Beef", price: 700, category: "kenyan", desc: "Steamed rice with savoury beef stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhON6xK3SNhMntnQrxt8UeLx3_GHKVrW7duw&s" },
+  { id: 102, name: "Biryani with Beef", price: 800, category: "kenyan", desc: "Aromatic spiced biryani with beef", img: "https://assets.unileversolutions.com/recipes-v2/250447.jpg" },
+  { id: 103, name: "Rice with Chicken Stew", price: 800, category: "kenyan", desc: "Fluffy rice topped with rich chicken stew", img: "https://recipehippie.com/wp-content/uploads/2021/06/african-chicken-stew.jpg" },
+  { id: 104, name: "Chapati & Beans", price: 150, category: "kenyan", desc: "Soft chapati served with delicious beans", img: "https://royalfood.co.ke/wp-content/uploads/2025/05/Chapati-beans.jpg" },
+  { id: 105, name: "Chapati & Minji", price: 250, category: "kenyan", desc: "Chapati with green peas (minji) stew", img: "https://scontent-mba2-1.xx.fbcdn.net/v/t39.30808-6/485795665_1351474849523487_8558458949634499867_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=108&ccb=1-7&_nc_sid=e06c5d&_nc_eui2=AeG6XDLHg89zbgnB8H6urmaEXYr03Mk-jj5divTcyT6OPpqcFpYXNCk1gYBbjE4_D2_m3y6nnL0eR1z6Xm1u_Nwy&_nc_ohc=1OR0XqyNJuwQ7kNvwE1DORm&_nc_oc=AdpF2-hZHNz1qep_eAs3vrNJJvLy5ZANQr87GWl40mTdF2Rj_FGILJVZPGZiNS7bkmI&_nc_zt=23&_nc_ht=scontent-mba2-1.xx&_nc_gid=tvwNuKdtkgUnUjAEWc7vOA&_nc_ss=7a3a8&oh=00_Af2v4GMVzJRJchJm0YR8kTot3_V5LcVex7F5EIBB0mRqCw&oe=69D2ECE7" },
+  { id: 106, name: "Chapati & Beef", price: 500, category: "kenyan", desc: "Chapati paired with flavorful beef", img: "https://pbs.twimg.com/media/Dgg7JtBWAAA7VKY.jpg" },
+  { id: 107, name: "Ugali Kienyeji", price: 250, category: "kenyan", desc: "Traditional maize meal ugali", img: "https://i.pinimg.com/736x/f1/92/7e/f1927ef33af20131797993d0780c85ea.jpg" },
+  { id: 108, name: "Fish Stew (served with Ugali, Pilau, Rice or Chapati)", price: 800, category: "kenyan", desc: "Fresh fish stew with choice of accompaniment", img: "https://img-global.cpcdn.com/recipes/69867530b1e73fc3/1200x630cq80/photo.jpg" },
+  { id: 109, name: "Beef Stew (served with Ugali, Pilau, Rice or Chapati)", price: 600, category: "kenyan", desc: "Hearty beef stew with your choice", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7in9EW2YpmvitEd1m-WOAHHUq6GiToZHOg&s" },
+  { id: 110, name: "Chicken Stew (served with Ugali, Pilau, Rice or Chapati)", price: 1200, category: "kenyan", desc: "Rich chicken stew with local spices", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgDT0g8lhNFC8k5MUUkNRPrUEng2mHj5x_Hw&s" },
+  { id: 111, name: "Goat Stew (served with Ugali, Pilau, Rice or Chapati)", price: 1000, category: "kenyan", desc: "Tender goat stew, East African style", img: "https://www.monitor.co.ug/resource/image/1754480/landscape_ratio3x2/1200/800/a2f9c0ed6c18356774bdd58350f0377e/kZ/dinningpix.jpg" },
+  { id: 112, name: "Minji (Green Peas) (served with Rice or Chapati)", price: 250, category: "kenyan", desc: "Green peas stew served with rice or chapati", img: "https://homepressurecooking.com/wp-content/uploads/2024/07/minji-stew-recipe-1721895453.jpg" },
+  { id: 113, name: "Beans (Kenyan) (served with Rice or Chapati)", price: 200, category: "kenyan", desc: "Well-cooked beans with onions", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSosSI7NF3CRRU2W8eiEPAcrXvUqpi2mAswZQ&s" },
+  { id: 114, name: "Ndengu (Green Grams) (served with Rice or Chapati)", price: 150, category: "kenyan", desc: "Delicious ndengu stew", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT84N-3wO6_-Uly6TgPWebURKOkWEl8t72TJQ&s" },
+  { id: 115, name: "Managu (African Nightshade) (served with Ugali, Rice or Chapati)", price: 250, category: "kenyan", desc: "Traditional managu vegetables", img: "https://img-global.cpcdn.com/steps/8b82cdf2840014c1/400x400cq80/photo.jpg" },
+  { id: 116, name: "Spinach (served with Ugali, Rice or Chapati)", price: 200, category: "kenyan", desc: "Sautéed fresh spinach", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrWq1AryDBb9naruERjptdDmmcTMgtN64SAQ&s" },
+  { id: 117, name: "Cabbage (served with Ugali, Rice or Chapati)", price: 200, category: "kenyan", desc: "Shredded cabbage stir-fry", img: "https://img-global.cpcdn.com/recipes/00516d50264170c8/1200x630cq80/photo.jpg" },
+  { id: 118, name: "Omelette (served with Ugali, Rice or Chapati)", price: 500, category: "kenyan", desc: "Fluffy omelette with onions & tomatoes", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGdLbf4RU1jiNFiZopCjLmc8rCYfFDbcPR4Q&s" },
+  { id: 119, name: "Sausage", price: 100, category: "kenyan", desc: "Grilled pork or beef sausage", img: "https://greenspoon.co.ke/wp-content/uploads/2022/07/Greenspoon-german-kenya-cheese-sausage-.jpg" },
+  { id: 120, name: "African Tea (Chai)", price: 50, category: "kenyan", desc: "Authentic Kenyan milk tea", img: "https://judywanderi.net/wp-content/uploads/2020/11/MG_8031-683x1024.jpg" },
+  { id: 121, name: "White Coffee", price: 70, category: "kenyan", desc: "Smooth white coffee", img: "https://bigsquare.co.ke/cdn/shop/files/HouseCoffeeWhite.jpg?v=1750439082" },
+  { id: 122, name: "Black Coffee", price: 50, category: "kenyan", desc: "Strong black coffee", img: "https://bigsquare.co.ke/cdn/shop/files/Housecoffeeblack_1.jpg?v=1750439082" }
+];
+
+function renderPricelist() {
+  const categories = {
+    breakfast: document.getElementById('breakfast-grid'),
+    proteins: document.getElementById('proteins-grid'),
+    soups: document.getElementById('soups-grid'),
+    rice: document.getElementById('rice-grid'),
+    stew: document.getElementById('stew-grid'),
+    swallows: document.getElementById('swallows-grid'),
+    sauce: document.getElementById('sauce-grid'),
+    kenyan: document.getElementById('kenyan-grid')
+  };
+
+  Object.keys(categories).forEach(cat => {
+    const items = menuData.filter(item => item.category === cat);
+    const grid = categories[cat];
+
+    grid.innerHTML = items.map(item => `
+      <div class="menu-item">
+        <img class="menu-img" src="${item.img}" alt="${item.name}" 
+             onerror="this.src='https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=600'">
+        <div class="item-content">
+          <div class="item-name">${item.name}</div>
+          <div class="item-price">${item.price} Ksh</div>
+          <div class="item-desc">${item.desc}</div>
+        </div>
+      </div>
+    `).join('');
   });
+}
 
-  // WhatsApp order link (static - can be customized)
-  const RESTAURANT_PHONE = "254740582858";
-  const ADDRESS = "Opposite Racecourse Gardens, off Ngong road, Nairobi";
-  const whatsappLink = document.getElementById("whatsappOrderLink");
-  whatsappLink.href = `https://wa.me/${RESTAURANT_PHONE}?text=Hello%20Oasis%20Restaurant%20Nairobi%20(Naija%20Kitchen)%2C%20I'd%20like%20to%20place%20an%20order%20for%20delivery%20to%20${encodeURIComponent(ADDRESS)}.`;
-
-  // Initialize
-  renderMenu();
+renderPricelist();
 </script>
+
 </body>
 </html>
