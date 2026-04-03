@@ -165,7 +165,7 @@
             <a href="https://www.instagram.com/oasi253/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/oasisnigerianrestaurant/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
             <a href="https://www.tiktok.com/@oasisloungerestaurant67/" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/@Oasislounge_restaurant/" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.youtube.com/Oasislounge_restaurant" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
             <a href="https://wa.me/254740582858" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
         </div>
         <div class="cart-icon" id="cartIconBtn">
@@ -219,7 +219,7 @@
     <a href="https://www.instagram.com/oasisnigerianrestaurant/" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.facebook.com/oasisnigerianrestaurant/" target="_blank"><i class="fab fa-facebook"></i></a>
     <a href="https://www.tiktok.com/@oasisloungerestaurant67" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.youtube.com/@Oasislounge_restaurant" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.youtube.com/Oasislounge_restaurant" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://wa.me/254740582858" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 </div>
@@ -239,16 +239,64 @@
 </div>
 
 <!-- CART OVERLAY -->
+<!-- CART OVERLAY -->
 <div id="cartOverlay" class="cart-overlay">
   <div class="cart-sidebar">
-    <h3><i class="fas fa-utensils"></i> Your Order</h3>
-    <div id="cartItemsList"></div>
-    <div id="cartTotalAmount" class="cart-total">Total: 0 Ksh</div>
-    
+    <div class="cart-header">
+      <h3><i class="fas fa-utensils"></i> Your Order</h3>
+      <button id="closeCartBtn" class="close-cart-btn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Cart Items Container -->
+    <div id="cartItemsList" class="cart-items-list">
+      <!-- Cart items will be dynamically populated here by JavaScript -->
+    </div>
+
+    <!-- Empty Cart Message -->
+    <div id="emptyCartMessage" class="empty-cart-message" style="display: none;">
+      <i class="fas fa-shopping-basket"></i>
+      <p>Your cart is empty</p>
+      <button id="startShoppingBtn" class="start-shopping-btn">Start Browsing</button>
+    </div>
+
+    <!-- Cart Summary -->
+    <div id="cartSummary" class="cart-summary">
+      <div class="cart-total">
+        <span>Total:</span>
+        <strong id="cartTotalAmount">0 Ksh</strong>
+      </div>
+      
+      <!-- Optional: Delivery Fee / Service Fee -->
+      <!-- 
+      <div class="cart-fees">
+        <span>Delivery Fee:</span>
+        <strong id="deliveryFee">0 Ksh</strong>
+      </div>
+      -->
+
+      <div class="cart-grand-total">
+        <span>Grand Total:</span>
+        <strong id="grandTotalAmount">0 Ksh</strong>
+      </div>
+    </div>
+
+    <!-- Checkout Actions -->
     <div class="checkout-actions">
-      <button id="checkoutWhatsAppBtn" class="checkout-btn"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
-      <button id="payNowBtn" class="pay-now-btn"><i class="fas fa-credit-card"></i> Pay Now</button>
-      <button id="closeCartBtn" class="close-cart">Continue Browsing</button>
+      <button id="checkoutWhatsAppBtn" class="checkout-btn whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> 
+        Order via WhatsApp
+      </button>
+      
+      <button id="payNowBtn" class="checkout-btn pay-now-btn">
+        <i class="fas fa-credit-card"></i> 
+        Pay Now (M-Pesa / Card)
+      </button>
+      
+      <button id="continueShoppingBtn" class="continue-shopping-btn">
+        Continue Browsing
+      </button>
     </div>
   </div>
 </div>
