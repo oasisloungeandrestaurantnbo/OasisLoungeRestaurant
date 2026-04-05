@@ -307,6 +307,7 @@
     <button class="cat-btn" data-cat="swallows">Swallows</button>
     <button class="cat-btn" data-cat="sauce">Sauces</button>
     <button class="cat-btn" data-cat="kenyan">Kenyan Menu</button>
+    <button class="cat-btn" data-cat="drinks">Drinks & Spirits</button>
   </div>
 
   <div class="videos-section">
@@ -500,7 +501,47 @@ const menuData = [ /* Full menu data - same as before */
   { id: 119, name: "Sausage", price: 100, category: "kenyan", desc: "Grilled pork or beef sausage", img: "https://greenspoon.co.ke/wp-content/uploads/2022/07/Greenspoon-german-kenya-cheese-sausage-.jpg" },
   { id: 120, name: "African Tea (Chai)", price: 50, category: "kenyan", desc: "Authentic Kenyan milk tea", img: "https://judywanderi.net/wp-content/uploads/2020/11/MG_8031-683x1024.jpg" },
   { id: 121, name: "White Coffee", price: 70, category: "kenyan", desc: "Smooth white coffee", img: "https://bigsquare.co.ke/cdn/shop/files/HouseCoffeeWhite.jpg?v=1750439082" },
-  { id: 122, name: "Black Coffee", price: 50, category: "kenyan", desc: "Strong black coffee", img: "https://bigsquare.co.ke/cdn/shop/files/Housecoffeeblack_1.jpg?v=1750439082" }
+  { id: 122, name: "Black Coffee", price: 50, category: "kenyan", desc: "Strong black coffee", img: "https://bigsquare.co.ke/cdn/shop/files/Housecoffeeblack_1.jpg?v=1750439082" },
+  // === NEW DRINKS SECTION ===
+  // Cognac & Brandy
+  { id: 200, name: "Hennessy VSOP 750ml", price: 13000, category: "drinks", desc: "Premium cognac - smooth & rich", img: "https://ik.imagekit.io/drinksvine/products/hennessy-vsop.webp" },
+  { id: 201, name: "Hennessy VS 700ml", price: 8000, category: "drinks", desc: "Classic Hennessy VS", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMjVViQjGaVWArhUwx7XsaYCASOVEkJREFyg&s" },
+  { id: 202, name: "Martell VSOP 700ml", price: 10500, category: "drinks", desc: "Elegant French cognac", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlsflnPF721gdqUujIXzZQmWo0fn6fViM4NQ&s" },
+  { id: 203, name: "Martell VS 1 Litre", price: 11000, category: "drinks", desc: "Martell VS - 1000ml", img: "https://static.cognac-expert.com/13596-thickbox_default/martell-vs-single-distillery-fine-cognac.webp" },
+  { id: 204, name: "Martell VS 700ml", price: 8500, category: "drinks", desc: "Martell VS", img: "https://quest.co.ke/wp-content/uploads/2023/08/martell-vsop-1.jpg" },
+  { id: 205, name: "Martell Blue Swift 700ml", price: 12000, category: "drinks", desc: "Premium finished cognac", img: "https://villagemarketcellar.co.ke/cdn/shop/products/martell-blue-swift.png?v=1633112998" },
+
+  // Whisky
+  { id: 210, name: "Black Label 750ml", price: 4500, category: "drinks", desc: "Johnnie Walker Black Label", img: "https://jayswines.com/wp-content/uploads/2021/06/jw-black-1.webp" },
+  { id: 211, name: "Black Label 1 Litre", price: 5500, category: "drinks", desc: "Johnnie Walker Black Label 1000ml", img: "https://www.oaks.delivery/wp-content/uploads/2017/04/jw-black.jpg" },
+  { id: 212, name: "Jack Daniels 750ml", price: 6000, category: "drinks", desc: "Tennessee whiskey", img: "https://ik.imagekit.io/drinkszone/products/jack-daniel's-sour-mash.webp" },
+  { id: 213, name: "Grants 1 Litre", price: 3000, category: "drinks", desc: "Grant's blended scotch", img: "https://jayswines.com/wp-content/uploads/2015/04/Grants-Scotch-Whisky-1ltr.jpg" },
+  { id: 214, name: "Ballantines Whisky 750ml", price: 3500, category: "drinks", desc: "Ballantine's finest", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMpp1J7Kk7kdOH9x8-tISFvtusOmu_YqYNA&s" },
+  { id: 215, name: "Jameson Whiskey 750ml", price: 3000, category: "drinks", desc: "Irish whiskey", img: "https://soys.co.ke/PImages/FGDUM-0.jpg" },
+
+  // Gin
+  { id: 220, name: "Gilbeys Gin 750ml", price: 1800, category: "drinks", desc: "Classic London dry gin", img: "https://cdn.mafrservices.com/pim-content/KEN/media/product/41894/1762527604/41894_main.jpg" },
+  { id: 221, name: "Tanqueray Gin 1 Litre", price: 4000, category: "drinks", desc: "Premium London dry gin", img: "https://jayswines.com/wp-content/uploads/2023/04/Buy-Tanqueray-London-Dry-Gin-1L-online-in-Nairobi.jpg" },
+  { id: 222, name: "Gordon's Gin 1 Litre", price: 3500, category: "drinks", desc: "Gordon's London dry", img: "https://www.oaks.delivery/wp-content/uploads/2017/04/gordons-gin.jpg" },
+
+  // Vodka
+  { id: 230, name: "Smirnoff Vodka 750ml", price: 2000, category: "drinks", desc: "Classic Smirnoff Red", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtbG2NBhBA-TKaCosPaj71DzhwsfgCMyS8yg&s" },
+  { id: 231, name: "Chrome Vodka 750ml", price: 1000, category: "drinks", desc: "Affordable local vodka", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgkbaErsWQdeYfTSq2c_yTXtGlKKr242F6QA&s" },
+
+  // Rum & Local Spirits
+  { id: 240, name: "Captain Morgan 750ml", price: 1800, category: "drinks", desc: "Spiced rum", img: "https://jayswines.com/wp-content/uploads/2016/10/Buy-Captain-Morgan-Spiced-Gold-750ml-online-in-Nairobi.png" },
+  { id: 241, name: "Kenya Cane Ginger 750ml", price: 1250, category: "drinks", desc: "Ginger flavored local spirit", img: "https://www.oaks.delivery/wp-content/uploads/cane-1.jpg" },
+  { id: 242, name: "Kenya Cane Pineapple 750ml", price: 1250, category: "drinks", desc: "Pineapple flavored", img: "https://www.havenwines.co.ke/wp-content/uploads/2021/08/kenya-cane-pineapple-750ml.jpg" },
+
+  // Liqueurs & Cream
+  { id: 250, name: "Amarula 750ml", price: 3000, category: "drinks", desc: "Cream liqueur from marula fruit", img: "https://ik.imagekit.io/drinksvine/products/amarula-fruit-cream.webp" },
+  { id: 251, name: "Baileys 750ml", price: 3500, category: "drinks", desc: "Irish cream liqueur", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQScPzkJEEM7MJqn918_hvsMuGVlnjvhPyxiw&s" },
+  { id: 252, name: "Malibu 700ml", price: 2500, category: "drinks", desc: "Coconut rum liqueur", img: "https://www.winecentral.co.nz/cdn/shop/products/Malibu_grande.png?v=1613553075" },
+
+  // Wines
+  { id: 260, name: "Four Cousins 750ml", price: 2000, category: "drinks", desc: "Popular South African wine", img: "https://cdn.store.link/products/store21566/vcbf3y-four%20cousins%20sweet%20red%20750ml.jpg?versionId=iZmDaw4Hf08VwM4IKsqsFita2fRPshNa" },
+  { id: 261, name: "Caprice Sweet Red 1 Litre", price: 1500, category: "drinks", desc: "Sweet red wine", img: "https://www.oaks.delivery/wp-content/uploads/Copy-of-Copy-of-Social-Media-Product-Ad-800-x-800-px-70.png" },
+  { id: 262, name: "Black Bird 750ml", price: 2000, category: "drinks", desc: "Red wine", img: "https://jayswines.com/wp-content/uploads/2020/11/Buy-black-bird-natural-sweet-red-online-in-Nairobi-Kenya.jpg" }
 ];
 
 let cart = [];
