@@ -247,7 +247,7 @@
             <a href="https://www.instagram.com/oasi253/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/oasisnigerianrestaurant/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
             <a href="https://www.tiktok.com/@oasisnigerianrest" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/channel/UCexample" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.youtube.com/@Oasislounge_restaurant" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
             <a href="https://wa.me/254740582858" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
         </div>
         <div class="cart-icon" id="cartIconBtn">
@@ -316,7 +316,7 @@
     <div class="videos-carousel" id="videosCarousel">
       <div class="video-slide active"><iframe src="https://www.instagram.com/p/DVN--J2CH7l/embed" title="Instagram reel" scrolling="no" allowfullscreen></iframe></div>
       <div class="video-slide"><iframe src="https://www.tiktok.com/embed/v3/7620431315342494984" title="TikTok video" scrolling="no" allowfullscreen></iframe></div>
-      <div class="video-slide"><iframe src="https://www.youtube.com/embed/4Ue1Fkq_5gw" title="YouTube video" frameborder="0" allowfullscreen></iframe></div>
+      <div class="video-slide"><iframe src="https://www.youtube.com/shorts/gLnO01vedyc" title="YouTube video" frameborder="0" allowfullscreen></iframe></div>
     </div>
     <div class="carousel-controls"><button id="prevSlide" class="carousel-btn">←</button><button id="nextSlide" class="carousel-btn">→</button></div>
   </div>
@@ -331,7 +331,7 @@
     <a href="https://www.instagram.com/oasisnigerianrestaurant/" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.facebook.com/oasisnigerianrestaurant/" target="_blank"><i class="fab fa-facebook"></i></a>
     <a href="https://www.tiktok.com/@oasisnigerianrest" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://www.youtube.com/channel/UCexample" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.youtube.com/@Oasislounge_restaurant" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://wa.me/254740582858" target="_blank"><i class="fab fa-whatsapp"></i></a>
   </div>
 </div>
@@ -346,7 +346,7 @@
   <a href="https://www.instagram.com/oasisnigerianrestaurant/" target="_blank" class="float-ig" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
   <a href="https://www.tiktok.com/@oasisnigerianrest" target="_blank" class="float-tt" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
   <a href="https://www.facebook.com/oasisnigerianrestaurant/" target="_blank" class="float-fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://www.youtube.com/channel/UCexample" target="_blank" class="float-yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+  <a href="https://www.youtube.com/@Oasislounge_restaurant" target="_blank" class="float-yt" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
   <a href="https://wa.me/254740582858" id="whatsappFloatLink" class="float-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 </div>
 
@@ -577,16 +577,76 @@ function addToCart(id) {
 }
 
 function updateCartUI() {
-  const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
+  const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
   document.getElementById("cartCount").innerText = totalItems;
-  // ... rest of cart UI logic (same as previous)
+  const cartContainer = document.getElementById("cartItemsList");
+  if (!cartContainer) return;
+  
+  if (cart.length === 0) {
+    cartContainer.innerHTML = '<div class="empty-cart">🛒 Your cart is empty. Add some delicious meals!</div>';
+    document.getElementById("cartTotalAmount").innerHTML = `Total: 0 Ksh`;
+    return;
+  }
+  
+  let html = '';
+  cart.forEach(item => {
+    html += `
+      <div class="cart-item">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">${item.price} Ksh each</div>
+        </div>
+        <div class="cart-item-controls">
+          <button class="cart-qty-btn" data-id="${item.id}" data-delta="-1">-</button>
+          <span style="min-width: 28px; text-align:center;">${item.quantity}</span>
+          <button class="cart-qty-btn" data-id="${item.id}" data-delta="1">+</button>
+          <button class="cart-remove" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button>
+        </div>
+      </div>
+    `;
+  });
+  cartContainer.innerHTML = html;
+  
   const total = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
   document.getElementById("cartTotalAmount").innerHTML = `Total: ${total} Ksh`;
+  
+  // Attach cart controls
+  document.querySelectorAll('.cart-qty-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = parseInt(btn.dataset.id);
+      const delta = parseInt(btn.dataset.delta);
+      changeQuantity(id, delta);
+    });
+  });
+  document.querySelectorAll('.cart-remove').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = parseInt(btn.dataset.id);
+      removeItem(id);
+    });
+  });
 }
 
-function changeQty(id, delta) { /* same */ }
-function removeItem(id) { /* same */ }
-function getCurrentTotal() { return cart.reduce((s, i) => s + (i.price * i.quantity), 0); }
+function changeQuantity(id, delta) {
+  const idx = cart.findIndex(i => i.id === id);
+  if (idx === -1) return;
+  const newQty = cart[idx].quantity + delta;
+  if (newQty <= 0) cart.splice(idx, 1);
+  else cart[idx].quantity = newQty;
+  updateCartUI();
+}
+
+function removeItem(id) {
+  cart = cart.filter(i => i.id !== id);
+  updateCartUI();
+}
+
+function getCurrentTotal() {
+  return cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+}
+
+function showCartSidebar() {
+  document.getElementById("cartOverlay").style.display = "flex";
+}
 
 // File upload setup (same as before)
 function setupFileUpload(areaId, inputId, previewId) {
